@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NutriLens AI - Understand Your Food</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="brand"><span class="logo-emoji">🔎</span> NutriLens AI</div>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="history.html">History</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Know what's really in your food.</h1>
+        <p>
+          Upload a photo of an ingredient label and let AI explain every
+          ingredient in plain English no more googling each one yourself.
+        </p>
+      </section>
+
+      <div class="tab-panel active" id="panel-image">
+        <div class="card">
+          <div class="dropzone" id="dropzone">
+            <div class="dz-icon">🖼️</div>
+            <p><strong>Click to upload</strong> or drag and drop</p>
+            <p class="dz-hint">PNG, JPG, JPEG, or WEBP</p>
+            <input type="file" id="file-input" accept=".png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp" />
+          </div>
+
+          <div class="preview-wrap hidden" id="preview-wrap">
+            <img id="preview-img" alt="Selected label preview" />
+            <div class="file-name" id="preview-filename"></div>
+          </div>
+
+          <div class="field-hint" style="text-align:center;">
+            Product name (optional - we'll generate a title from the ingredients if left blank)
+          </div>
+          <input type="text" id="image-product-name" placeholder="e.g. Store Brand Cola"
+                 style="width:100%; margin-top:6px; padding:12px 16px; border-radius:8px; border:1px solid var(--color-border); font-size:1rem;" />
+
+          <div class="actions-row">
+            <button class="btn btn-primary" id="analyze-image-btn" disabled>Analyze Ingredients</button>
+          </div>
+
+          <div class="alert alert-error hidden" id="image-error"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="loading-overlay hidden" id="loading-overlay">
+    <div class="spinner"></div>
+    <p id="loading-text">Analyzing ingredients&hellip;</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
